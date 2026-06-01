@@ -1,0 +1,11 @@
+{
+  "extensions": [".md", ".markdown", ".html", ".htm"],
+  "ignoreDirs": ["node_modules", ".git", "dist", "build"],
+  "reportExternal": false,
+  "checkOrphans": true,
+  "ignoreTargets": [],
+  "minScore": 80,
+  "ruleSeverity": {
+    "ambiguous-anchor": "warning"
+  }
+}

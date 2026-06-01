@@ -1,0 +1,151 @@
+{
+  "tool": "linklint",
+  "version": "0.1.0",
+  "generatedAt": "2026-06-01T05:09:59.902Z",
+  "root": "/Users/yang/오픈소스/linklint",
+  "summary": {
+    "documents": 3,
+    "links": 17,
+    "score": 68,
+    "grade": "D",
+    "errors": 6,
+    "warnings": 1,
+    "infos": 0,
+    "byRule": [
+      {
+        "rule": "broken-file-link",
+        "count": 3
+      },
+      {
+        "rule": "ambiguous-anchor",
+        "count": 1
+      },
+      {
+        "rule": "broken-anchor",
+        "count": 1
+      },
+      {
+        "rule": "broken-cross-anchor",
+        "count": 1
+      },
+      {
+        "rule": "undefined-reference",
+        "count": 1
+      }
+    ]
+  },
+  "documents": [
+    {
+      "path": "examples/docs/api/index.md",
+      "links": 1,
+      "score": 100,
+      "grade": "A",
+      "counts": {
+        "error": 0,
+        "warning": 0,
+        "info": 0
+      },
+      "issues": []
+    },
+    {
+      "path": "examples/docs/guide.md",
+      "links": 3,
+      "score": 74,
+      "grade": "C",
+      "counts": {
+        "error": 1,
+        "warning": 1,
+        "info": 0
+      },
+      "issues": [
+        {
+          "rule": "undefined-reference",
+          "severity": "error",
+          "document": "examples/docs/guide.md",
+          "target": "nope",
+          "message": "Reference \"[nope]\" is never defined",
+          "line": 17,
+          "text": "undefined reference",
+          "detail": "Reference-style links need a matching `[id]: url` definition.",
+          "fix": "Add a definition: [nope]: <url>"
+        },
+        {
+          "rule": "ambiguous-anchor",
+          "severity": "warning",
+          "document": "examples/docs/guide.md",
+          "target": "#setup",
+          "message": "Multiple headings slug to \"#setup\" — anchors get -1/-2 suffixes",
+          "line": 7,
+          "detail": "Linking to the duplicate requires the numbered slug (e.g. #setup-1).",
+          "fix": "Rename headings to be unique, or link with the suffixed slug."
+        }
+      ]
+    },
+    {
+      "path": "examples/docs/README.md",
+      "links": 13,
+      "score": 31,
+      "grade": "F",
+      "counts": {
+        "error": 5,
+        "warning": 0,
+        "info": 0
+      },
+      "issues": [
+        {
+          "rule": "broken-file-link",
+          "severity": "error",
+          "document": "examples/docs/README.md",
+          "target": "missing-page.md",
+          "message": "Link target not found: \"missing-page.md\"",
+          "line": 13,
+          "text": "Broken page",
+          "detail": "Resolved to examples/docs/missing-page.md",
+          "fix": "Fix the path or restore the missing file."
+        },
+        {
+          "rule": "broken-file-link",
+          "severity": "error",
+          "document": "examples/docs/README.md",
+          "target": "images/missing.png",
+          "message": "Link target not found: \"images/missing.png\"",
+          "line": 16,
+          "text": "Missing image",
+          "detail": "Resolved to examples/docs/images/missing.png",
+          "fix": "Fix the path or restore the missing file."
+        },
+        {
+          "rule": "broken-file-link",
+          "severity": "error",
+          "document": "examples/docs/README.md",
+          "target": "./CONTRIBUTING-LINK.md",
+          "message": "Link target not found: \"./CONTRIBUTING-LINK.md\"",
+          "line": 20,
+          "text": "contributing guide",
+          "detail": "Resolved to examples/docs/CONTRIBUTING-LINK.md",
+          "fix": "Fix the path or restore the missing file."
+        },
+        {
+          "rule": "broken-anchor",
+          "severity": "error",
+          "document": "examples/docs/README.md",
+          "target": "#does-not-exist",
+          "message": "Anchor \"#does-not-exist\" has no matching heading or id in this document",
+          "line": 9,
+          "text": "Missing section",
+          "fix": "Use a heading's slug, or add an explicit id."
+        },
+        {
+          "rule": "broken-cross-anchor",
+          "severity": "error",
+          "document": "examples/docs/README.md",
+          "target": "guide.md#no-such-heading",
+          "message": "Anchor \"#no-such-heading\" not found in examples/docs/guide.md",
+          "line": 12,
+          "text": "Guide missing anchor",
+          "fix": "Point to an existing heading slug in the target file."
+        }
+      ]
+    }
+  ]
+}
